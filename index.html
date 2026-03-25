@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        container{
+            width: 86%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar with scroll effect -->
+    <div id="navbar" class="container bg-yellow-100 rounded-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="width: 80%; margin: 0 auto; left: 0; right: 0;">
+        <div class="grid md:grid-cols-2 xl:grid-cols-3">
+            <div class="flex">
+                <div>
+                    <img class="h-[90px] hover:scale-105 rounded-xl transition-transform duration-300"
+                        src="https://images.pexels.com/photos/1310524/pexels-photo-1310524.jpeg?cs=srgb&dl=pexels-george-dolgikh-551816-1310524.jpg&fm=jpg"
+                        alt="Prabesh">
+                </div>
+            </div>
+            <div class="flex justify-between text-center items-center">
+                <a class="hover:text-blue-600 duration-300 transition-colors" href="#home">home</a>
+                <a class="hover:text-blue-600 duration-300 transition-colors" href="#about">about</a>
+                <a class="hover:text-blue-600 duration-300 transition-colors" href="#skills">skills</a>
+                <a class="hover:text-blue-600 duration-300 transition-colors" href="#projects">projects</a>
+            </div>
+        </div>
+    </div>
+      <!-- Home Section -->
+    <section id="home" class="pt-40">
+        <div class="flex container justify-center items-center">
+            <img class="h-[200px] border text-blue-700 rounded-xl shadow-lg hover:rotate-3"
+                src="https://images.pexels.com/photos/1310524/pexels-photo-1310524.jpeg?cs=srgb&dl=pexels-george-dolgikh-551816-1310524.jpg&fm=jpg"
+                alt="">
+        </div>
+    </section>
+
+    <div class="container flex justify-center items-center ">
+        <p class="text-6xl md:text-8xl text-center">Hi, I'm <span class="text-red-400 ">Prabesh Tamang</span></p>
+        <br>
+    </div>
+
+    <div class="container pt-10 flex justify-center items-center text-xl md:text-2xl text-gray-400 ">
+        <span>Full Stack Developer & Designer</span>
+    </div>
+
+    <div class="container flex justify-center items-center pt-10 pb-50">
+        <div class="flex gap-5">
+            <a class="text-white hover:bg-blue-600 rounded-full bg-blue-400 px-6 py-2 transition-all duration-300  hover:scale-105 hover:shadow-lg  " href="">Get in touch</a>
+            <a class="text-blue-600 border border-blue-400 hover:bg-blue-500 hover:text-white rounded-full bg-white px-6 py-2 transition-all duration-300 transform hover:scale-105 hover:shadow-lg" href="#projects">View work</a>
+        </div>
+    </div>
+
+     <!-- About Section -->
+
+    <section id="about" class="container bg-gray-100 pt-40 pb-40 rounded-2xl my-10 animate-on-scroll">
+        <div class="flex justify-center items-center mb-20 fade-up animate-on-scroll">
+            <h2 class="text-3xl font-bold relative inline-block">
+                About Me
+                <span class="absolute bottom-0 left-0 w-0 h-1 bg-blue-500 transition-all duration-500 group-hover:w-full"></span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="pl-10 pr-5 w-full animate-on-scroll fade-left">
+                <img class="h-[400px] rounded-xl w-full object-cover transform transition-transform duration-500 hover:scale-105"
+                    src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="">
+            </div>
+            <div class="pl-6 animate-on-scroll fade-right">
+                <p class="text-2xl font-semibold pb-3">Passionate Developer Creating Amazing Web Experiences</p>
+                <p class="text-gray-500">I'm a full-stack developer with 5+ years of experience building exceptional
+                    digital products. I specialize in creating responsive, user-friendly applications that solve
+                    real-world problems.</p>
+                <p class="text-gray-500 pt-4 pb-4">My journey in web development started when I built my first
+                    website in college. Since then, I've worked with startups and established companies to bring
+                    their ideas to life.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <h1 class="font-semibold">Name:</h1>
+                        <p class="text-gray-800">Prabesh Tamang</p>
+                    </div>
+                    <div>
+                        <h1 class="font-semibold">Email:</h1>
+                        <p class="text-gray-800">prabesh@example <br>.com</p>
+                    </div>
+                    <div>
+                        <h1 class="font-semibold">Location:</h1>
+                        <p class="text-gray-800">Dharan, Nepal</p>
+                    </div>
+                    <div>
+                        <h1 class="font-semibold">Freelance:</h1>
+                        <p class="text-green-600 font-semibold">Available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
