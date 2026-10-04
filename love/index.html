@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Love ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            /* Simple background */
+            background: #ffe6f0;
+
+            overflow: hidden;
+        }
+
+
+        .container {
+            text-align: center;
+
+            animation: appear 1s ease;
+        }
+
+
+        h1 {
+            color: #333;
+
+            margin-bottom: 30px;
+
+            animation: float 2s ease-in-out infinite;
+        }
+
+
+        button {
+            padding: 12px 25px;
+
+            margin: 10px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            border: none;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+
+        /* YES */
+
+        #yes {
+            background: green;
+            color: white;
+        }
+
+        #yes a {
+            color: white;
+            text-decoration: none;
+        }
+
+
+        #yes:hover {
+            background: #0a8f0a;
+
+            transform: scale(1.1);
+        }
+
+
+        /* NO */
+
+        #no {
+            background: red;
+
+            color: white;
+
+            position: absolute;
+        }
+
+
+        #no:hover {
+            transform: scale(1.05);
+        }
+
+
+        /* Small floating hearts */
+
+        .heart {
+            position: absolute;
+
+            bottom: -30px;
+
+            font-size: 20px;
+
+            animation: floatHeart 6s linear infinite;
+
+            opacity: 0.6;
+        }
+
+
+        .heart:nth-child(1) {
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            left: 50%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 80%;
+            animation-delay: 4s;
+        }
+
+
+        /* Page appears smoothly */
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: scale(1);
+            }
+
+        }
+
+
+        /* Heading moves slightly */
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+
+        }
+
+
+        /* Hearts move upward */
+
+        @keyframes floatHeart {
+
+            from {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.6;
+            }
+
+            to {
+                transform: translateY(-110vh);
+                opacity: 0;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Floating hearts -->
+
+    <div class="heart">❤️</div>
+
+    <div class="heart">💕</div>
+
+    <div class="heart">💗</div>
+
+
+    <div class="container">
+
+        <h1>
+            Do you love me? ❤️
+        </h1>
+
+
+        <button id="yes">
+            <a href="/love/home.html">YES</a>
+        </button>
+
+
+        <button id="no">
+            NO
+        </button>
+
+    </div>
+
+
+    <script>
+
+        const noButton =
+            document.getElementById("no");
+
+        const yesButton =
+            document.getElementById("yes");
+
+
+        // NO button runs away
+
+        noButton.addEventListener(
+            "mouseover",
+            function () {
+
+                const maxX =
+                    window.innerWidth -
+                    noButton.offsetWidth;
+
+                const maxY =
+                    window.innerHeight -
+                    noButton.offsetHeight;
+
+
+                const randomX =
+                    Math.random() * maxX;
+
+                const randomY =
+                    Math.random() * maxY;
+
+
+                noButton.style.left =
+                    randomX + "px";
+
+                noButton.style.top =
+                    randomY + "px";
+
+            }
+        );
+
+
+        // YES button
+
+        yesButton.addEventListener(
+            "click",
+            function () {
+
+                window.location.href = "/love";
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
