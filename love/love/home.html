@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>I Knew It ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(135deg,
+                    #ff758c,
+                    #ff7eb3,
+                    #a18cd1);
+        }
+
+        .container {
+            text-align: center;
+            color: white;
+            z-index: 10;
+            animation: appear 1.5s ease;
+        }
+
+        .heart {
+            font-size: 100px;
+            display: inline-block;
+
+            animation: heartbeat 1.2s infinite;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin: 20px 0 10px;
+
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        p {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        .love-button {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 30px;
+
+            background: white;
+            color: #ff4f81;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .love-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Floating hearts */
+
+        .floating-heart {
+            position: absolute;
+            bottom: -50px;
+
+            font-size: 30px;
+
+            animation: floatUp linear infinite;
+            opacity: 0.8;
+        }
+
+        .floating-heart:nth-child(1) {
+            left: 10%;
+            animation-duration: 7s;
+            animation-delay: 1s;
+        }
+
+        .floating-heart:nth-child(2) {
+            left: 25%;
+            animation-duration: 9s;
+            animation-delay: 3s;
+        }
+
+        .floating-heart:nth-child(3) {
+            left: 45%;
+            animation-duration: 6s;
+            animation-delay: 2s;
+        }
+
+        .floating-heart:nth-child(4) {
+            left: 65%;
+            animation-duration: 8s;
+            animation-delay: 1s;
+        }
+
+        .floating-heart:nth-child(5) {
+            left: 80%;
+            animation-duration: 10s;
+            animation-delay: 4s;
+        }
+
+        .floating-heart:nth-child(6) {
+            left: 90%;
+            animation-duration: 7s;
+            animation-delay: 2s;
+        }
+
+        /* Animations */
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.15);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: scale(0.5) translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating hearts -->
+
+    <div class="floating-heart">❤️</div>
+    <div class="floating-heart">💕</div>
+    <div class="floating-heart">💖</div>
+    <div class="floating-heart">💗</div>
+    <div class="floating-heart">❤️</div>
+    <div class="floating-heart">💘</div>
+
+
+    <div class="container">
+
+        <div class="heart">❤️</div>
+
+        <h1>I knew it! 😏❤️</h1>
+
+        <p>
+            AHAHA! I KNEW IT ,  LOVE WINS! 😂❤️ 
+        </p>
+
+
+        <button class="love-button" onclick="location.href='/'">
+            Love you too ❤️
+        </button>
+
+    </div>
+
+</body>
+
+</html>
