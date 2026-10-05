@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>System Check...</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #aaa;
+            font-size: 18px;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #111;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #loadingText {
+            margin-top: 30px;
+            font-family: monospace;
+            color: #00ff88;
+            min-height: 30px;
+        }
+
+        .progress {
+            width: 100%;
+            height: 10px;
+            background: #333;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        #bar {
+            width: 0%;
+            height: 100%;
+            background: #00ff88;
+            transition: width 0.3s;
+        }
+
+        #surprise {
+            animation: appear 1s ease;
+        }
+
+        #surprise h1 {
+            font-size: 50px;
+        }
+
+        .emoji {
+            position: fixed;
+            top: -50px;
+            font-size: 30px;
+            animation: fall linear forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .name {
+            color: #00ff88;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- START SCREEN -->
+    <div class="container" id="start">
+
+        <h1>👋 Hey!</h1>
+
+        <p>
+            I made a small magic trick for you.
+        </p>
+
+        <button onclick="startProgram()">
+            Click Me
+        </button>
+
+    </div>
+
+
+    <!-- LOADING SCREEN -->
+    <div class="container hidden" id="loading">
+
+        <h1>🔍 Checking...</h1>
+
+        <p id="loadingText">
+            Starting system...
+        </p>
+
+        <div class="progress">
+            <div id="bar"></div>
+        </div>
+
+    </div>
+
+
+    <!-- SURPRISE SCREEN -->
+    <div class="container hidden" id="surprise">
+
+        <h1>😂 Fuck YOU!</h1>
+
+        <p id="message"></p>
+
+        <p style="margin-top: 30px;">
+            You eat your freinds food a lot, Dont eat a lot , YOu would get fat. 😎
+        </p>
+
+    </div>
+
+
+    <script>
+
+        function startProgram() {
+
+            // Ask their name
+            let name = prompt("Before we continue... What is your name?");
+
+            // If they don't enter a name
+            if (!name || name.trim() === "") {
+                name = "Mystery Person";
+            }
+
+            // Hide start screen
+            document.getElementById("start").classList.add("hidden");
+
+            // Show loading screen
+            document.getElementById("loading").classList.remove("hidden");
+
+            let bar = document.getElementById("bar");
+            let loadingText = document.getElementById("loadingText");
+
+            let progress = 0;
+
+            const messages = [
+                "Connecting to friendship database...",
+                "Checking your identity...",
+                "Scanning your browser...",
+                "Analyzing your personality...",
+                "Searching for embarrassing photos...",
+                "Calculating how cool you are...",
+                "Almost finished...",
+                "Finalizing surprise..."
+            ];
+
+            let messageIndex = 0;
+
+            const interval = setInterval(function () {
+
+                progress += Math.floor(Math.random() * 12) + 5;
+
+                if (progress > 100) {
+                    progress = 100;
+                }
+
+                bar.style.width = progress + "%";
+
+                if (messageIndex < messages.length) {
+                    loadingText.textContent = messages[messageIndex];
+                    messageIndex++;
+                }
+
+                if (progress >= 100) {
+
+                    clearInterval(interval);
+
+                    setTimeout(function () {
+
+                        showSurprise(name);
+
+                    }, 1000);
+                }
+
+            }, 700);
+        }
+
+
+        function showSurprise(name) {
+
+            // Hide loading
+            document.getElementById("loading").classList.add("hidden");
+
+            // Show surprise
+            document.getElementById("surprise").classList.remove("hidden");
+
+            // Display name safely as text
+            document.getElementById("message").innerHTML =
+                `Mr. <span class="name">${escapeHTML(name)}</span>...<br><br>
+                We have discovered something VERY important about you. 😳`;
+
+            // Start emoji rain
+            startEmojiRain();
+        }
+
+
+        // Prevent HTML injection if someone types HTML as their name
+        function escapeHTML(text) {
+
+            const div = document.createElement("div");
+
+            div.textContent = text;
+
+            return div.innerHTML;
+        }
+
+
+        function startEmojiRain() {
+
+            const emojis = [
+                "😂",
+                "🤣",
+                "😎",
+                "🎉",
+                "🔥",
+                "💀",
+                "😭",
+                "🤡",
+                "❤️",
+                "🎊"
+            ];
+
+            // Create emojis continuously
+            setInterval(function () {
+
+                const emoji = document.createElement("div");
+
+                emoji.classList.add("emoji");
+
+                emoji.textContent =
+                    emojis[Math.floor(Math.random() * emojis.length)];
+
+                emoji.style.left =
+                    Math.random() * 100 + "vw";
+
+                emoji.style.animationDuration =
+                    (Math.random() * 3 + 2) + "s";
+
+                document.body.appendChild(emoji);
+
+                // Remove after animation
+                setTimeout(function () {
+
+                    emoji.remove();
+
+                }, 5000);
+
+            }, 150);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
